@@ -7,7 +7,7 @@ public class LightManager : MonoBehaviour
 {
     [SerializeField] private Light _DirectionalLight;
     [SerializeField] private LightScript _script;
-    [SerializeField] private float _TimeOfDay = 40f;
+    [SerializeField] private float _TimeOfDay = 35f;
     // Start is called before the first frame update
 
     private void UpdateLight(float time) {
@@ -15,7 +15,7 @@ public class LightManager : MonoBehaviour
 
         if (_DirectionalLight != null) {
             _DirectionalLight.color = _script.DirectionalColor.Evaluate(time);
-            _DirectionalLight.transform.localRotation = Quaternion.Euler(new Vector3((time * 360f) - 90f, 170f, 0));
+            _DirectionalLight.transform.localRotation = Quaternion.Euler(new Vector3((time * 360f) - 90f, 30f, 0));
         }
     }
 
@@ -27,8 +27,8 @@ public class LightManager : MonoBehaviour
 
         if(Application.isPlaying){
             _TimeOfDay += Time.deltaTime;
-            _TimeOfDay %= 24;
-            UpdateLight(_TimeOfDay / 24f);
+            _TimeOfDay %= 100;
+            UpdateLight(_TimeOfDay / 100f);
         }
     }
 }
