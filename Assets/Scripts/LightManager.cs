@@ -15,7 +15,7 @@ public class LightManager : MonoBehaviour
 
         if (_DirectionalLight != null) {
             _DirectionalLight.color = _script.DirectionalColor.Evaluate(time);
-            _DirectionalLight.transform.localRotation = Quaternion.Euler(new Vector3((time * 360f) - 90f, 30f, 0));
+            _DirectionalLight.transform.localRotation = Quaternion.Euler(new Vector3((time * 120f) - 90f, 30f, 0));
         }
     }
 
